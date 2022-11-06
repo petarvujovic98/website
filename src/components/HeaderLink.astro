@@ -1,0 +1,24 @@
+---
+export type Props = astroHTML.JSX.AnchorHTMLAttributes;
+
+const { href, class: className, ...props } = Astro.props;
+const isActive = href === Astro.url.pathname.replace(/\/$/, "");
+---
+
+<a
+  href={href}
+  class:list={[className, { active: isActive }, "header-link"]}
+  {...props}
+>
+  <slot />
+</a>
+<style>
+  .header-link {
+    @apply inline-block;
+    text-decoration: none;
+  }
+
+  .active {
+    @apply font-extrabold underline;
+  }
+</style>
