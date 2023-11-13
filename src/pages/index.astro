@@ -1,152 +1,168 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import SocialIcon from "../components/SocialIcon.svelte";
-import horizonScreenshot from "../assets/horizon-screenshot.png";
-import sqlifyScreenshot from "../assets/sqlify-screenshot.png";
-import {Image} from "@astrojs/image/components"
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import SocialIcon from "@components/SocialIcon.svelte";
+import hznScreenshot from "@assets/hzn-screenshot.png";
+import sqlifyScreenshot from "@assets/sqlify-screenshot.png";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@config";
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="flex flex-col gap-4">
+    <h1 class="text-5xl font-bold">
+      I'm a software engineer who's building your next
+      <span class="group cursor-pointer">
+        <span class="group-hover:line-through decoration-red-500">unicorn</span>
+        <span class="hidden group-hover:inline text-sky-200 dark:text-sky-500">
+          unvalidated
+        </span>
+      </span>
+       idea
+    </h1>
 
-  <body class="bg-cyan-50 dark:bg-cyan-800 dark:text-white pb-36 relative min-h-screen">
-    <div class="grid grid-cols-12 max-w-[100rem] mx-auto">
-      <Header title={SITE_TITLE} />
+    <h2 class="text-3xl font-semibold">
+      I build consumer apps and developer tools.
+    </h2>
 
-      <main class="max-w-5xl mx-auto col-start-3 col-end-11 flex flex-col gap-4">
-        <h1 class="text-5xl font-bold">
-          I'm a software engineer with a need for building and learning
-        </h1>
+    <h3 class="text-2xl font-semibold">
+      I like learning about pretty much everything (sometimes I wonder when my
+      brain will need to defragment).
+    </h3>
 
-        <h2 class="text-3xl font-semibold text-gray-500 dark:text-gray-300">
-          I love learning about everything and anything (from your best tib
-          exercises to how you run a business)
-        </h2>
+    <section class="flex flex-col gap-8 mt-8 justify-center items-center">
+      <h3 class="text-2xl font-semibold w-full">What I'm doing now</h3>
 
-        <section class="flex flex-col gap-8 mt-8 justify-center items-center">
-          <h3 class="text-2xl font-semibold text-gray-600 dark:text-gray-400 w-full ">What I'm doing now</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
+        <Image
+          src={hznScreenshot}
+          alt="NEAR Horizon screenshot"
+          class="w-full rounded-lg"
+        />
 
-          <div class="flex md:flex-row md:justify-between md:items-start w-full flex-col-reverse justify-start items-center gap-4">
-            <div class="flex flex-col gap-6">
-              <div class="flex flex-row justify-start items-center gap-4">
-                <a
-                  href="https://near.org/horizon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cursor-pointer text-2xl font-semibold text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-300"
-                >
-                  NEAR Horizon
-                </a>
-                <SocialIcon
-                    data={{ name: "GitHub", link: "https://github.com/near-horizon/horizon" }}
-                >
-                  <svg
-                      slot="icon"
-                      aria-hidden="true"
-                      viewBox="0 0 16 16"
-                      version="1.1"
-                      class="hover:text-blue-500 transition-colors duration-300"
-                  >
-                    <path
-                        fill-rule="evenodd"
-                        fill="currentColor"
-                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-                    />
-                  </svg>
-                </SocialIcon>
-              </div>
-              <p class="text-gray-500 dark:text-gray-300">
-                NEAR Horizon connects people building on NEAR. It's a dApp built on the 
-                <a
-                  href="https://docs.near.org/bos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BOS
-                </a>
-                platform on top of the 
-                <a
-                  href="https://near.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  NEAR Protocol
-                </a>.
-                <br/>
-                <br/>
-                I am the lead developer building all the parts of the project. From
-                the UI, API, smart contract and indexer to the analytics, syncing with
-                CRMs and fixing bugs.
-              </p>
-            </div>
+        <div class="flex flex-col gap-6 w-full order-last md:order-first">
+          <div class="flex flex-row justify-start items-center gap-4">
+            <a
+              href="https://hzn.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cursor-pointer text-2xl font-semibold hover:text-sky-500 transition-colors duration-300"
+            >
+              NEAR Horizon
+            </a>
 
-            <Image src={horizonScreenshot} alt="NEAR Horizon dashboard" class="md:max-w-[60%] w-full" />
+            <SocialIcon
+              data={{
+                name: "GitHub",
+                link: "https://github.com/near-horizon/horizon",
+              }}
+            >
+              <svg
+                slot="icon"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                version="1.1"
+                class="hover:text-sky-500 transition-colors duration-300"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="currentColor"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path>
+              </svg>
+            </SocialIcon>
           </div>
 
-          <div class="flex md:flex-row-reverse md:justify-between md:items-start w-full flex-col justify-start items-center gap-4">
-            <div class="flex flex-col gap-6">
-              <div class="flex flex-row justify-start items-center gap-4">
-                <a
-                  href="https://crates.io/crates/sqlify"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cursor-pointer text-2xl font-semibold text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-300"
-                >
-                  sqlify
-                </a>
-                <SocialIcon
-                    data={{ name: "GitHub", link: "https://github.com/petarvujovic98/sqlify" }}
-                >
-                  <svg
-                      slot="icon"
-                      aria-hidden="true"
-                      viewBox="0 0 16 16"
-                      version="1.1"
-                      class="hover:text-blue-500 transition-colors duration-300"
-                  >
-                    <path
-                        fill-rule="evenodd"
-                        fill="currentColor"
-                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-                    />
-                  </svg>
-                </SocialIcon>
-              </div>
-              <p class="text-gray-500 dark:text-gray-300">
-                sqlify is a CLI tool for formatting your SQL queries. It's built in
-                <a
-                  href="https://rust-lang.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rust
-                </a>
-                and uses the
-                <a
-                  href="https://github.com/shssoichiro/sqlformat-rs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  sqlformat
-                </a> crate for the actual formatting.
-                <br/>
-                <br/>
-                Something I built as a utility to help me organize my SQL queries in
-                the projects I work on.
-              </p>
-            </div>
+          <p>
+            NEAR Horizon connects people building on NEAR. It's a dApp built on
+            the
+            <a
+              href="https://docs.near.org/bos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              BOS
+            </a>
+             platform on top of the
+            <a
+              href="https://near.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              NEAR Protocol
+            </a>.
+            <br />
+            <br />
+             I am the lead developer building all the parts of the project. From
+            the UI, API, smart contract and indexer to the analytics, syncing
+            with CRMs and fixing bugs.
+          </p>
+        </div>
+      </div>
 
-            <Image src={sqlifyScreenshot} alt="NEAR Horizon dashboard" class="md:max-w-[60%] w-full" />
-        </section>
-      </main>
-    </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-4">
+        <Image
+          src={sqlifyScreenshot}
+          alt="sqlify screenshot"
+          class="w-full rounded-lg"
+        />
 
-    <Footer />
-  </body>
-</html>
+        <div class="flex flex-col gap-6 w-full">
+          <div class="flex flex-row justify-start items-center gap-4">
+            <a
+              href="https://crates.io/crates/sqlify"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cursor-pointer text-2xl font-semibold hover:text-sky-500 transition-colors duration-300"
+            >
+              sqlify
+            </a>
+
+            <SocialIcon
+              data={{
+                name: "GitHub",
+                link: "https://github.com/petarvujovic98/sqlify",
+              }}
+            >
+              <svg
+                slot="icon"
+                aria-hidden="true"
+                viewBox="0 0 16 16"
+                version="1.1"
+                class="hover:text-sky-500 transition-colors duration-300"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="currentColor"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path>
+              </svg>
+            </SocialIcon>
+          </div>
+
+          <p>
+            sqlify is a CLI tool for formatting your SQL queries. It's built in
+            <a
+              href="https://rust-lang.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rust
+            </a>
+             and uses the
+            <a
+              href="https://github.com/shssoichiro/sqlformat-rs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              sqlformat
+            </a> crate for the actual formatting.
+            <br />
+            <br />
+             Something I built as a utility to help me organize my SQL queries
+            in the projects I work on.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
