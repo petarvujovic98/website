@@ -1,5 +1,6 @@
 ---
 import hznScreenshot from "@assets/hzn-screenshot.png";
+import taikoScreenshot from "@assets/taiko.png";
 import sqlifyScreenshot from "@assets/sqlify-screenshot.png";
 import nearScreenshot from "@assets/near-sdk-js.png";
 import zapierScreenshot from "@assets/zapier.webp";
@@ -29,7 +30,7 @@ import Work from "@components/Work.astro";
     </h1>
 
     <h2 class="text-3xl font-semibold">
-      I build consumer apps and developer tools.
+      I build infrastructure, consumer apps and developer tools.
     </h2>
 
     <h3 class="text-2xl font-semibold">
@@ -39,6 +40,78 @@ import Work from "@components/Work.astro";
 
     <section class="flex flex-col gap-8 mt-8 justify-center items-center">
       <h3 class="text-2xl font-semibold w-full">What I'm doing now</h3>
+
+      <Work
+        image={taikoScreenshot}
+        title="taiko"
+        url="https://taiko.xyz"
+        github="https://github.com/taikoxyz"
+      >
+        <div slot="description">
+          <p>
+            Taiko is a
+            <a
+              href="https://docs.taiko.xyz/core-concepts/based-sequencing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              based rollup
+            </a>
+            which makes Ethereum cheaper while maintaining its properties:
+          </p>
+          <br />
+          <ul class="flex flex-col list-disc list-inside">
+            <li>
+              <a
+                href="https://docs.taiko.xyz/core-concepts/contestable-rollups"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold"
+              >
+                Based contestable rollup:
+              </a> A configurable rollup to reduce transaction fees on Ethereum.
+            </li>
+            <li>
+              <a
+                href="https://docs.taiko.xyz/core-concepts/booster-rollups"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold"
+              >
+                Based booster rollup:
+              </a> An innovative approach to <strong>native L1 scaling</strong>.
+            </li>
+          </ul>
+          <br />
+          <p>
+            I am working on
+            <a
+              href="https://github.com/taikoxyz/raiko"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold underline"
+            >
+              raiko
+            </a>
+            which is taiko's multi-prover for Taiko and Ethereum blocks. I'm in charge
+            of the repository and implementing the connective tissue between the
+            different provers (currently Risc0, SP1 and SGX) in order to provide
+            the optimal API for the network. I am also responsible for maintaining
+            high standards for best Rust practices and future extensibility.
+            <br />
+            I am also responsible for adapting
+            <a
+              href="https://github.com/taikoxyz/taiko-reth"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold underline"
+            >
+              reth
+            </a>
+            to support our L2 client and custom rollup block validation for taiko.
+          </p>
+        </div>
+      </Work>
 
       <Work
         image={hznScreenshot}
@@ -63,7 +136,7 @@ import Work from "@components/Work.astro";
           </a>.
           <br />
           <br />
-          I am the lead developer building all the parts of the project. From the
+          I was the lead developer building all the parts of the project. From the
           UI, API, smart contract and indexer to the analytics, syncing with CRMs
           and fixing bugs.
         </p>
