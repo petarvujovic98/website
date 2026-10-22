@@ -28,6 +28,8 @@ export interface Site {
 
 export interface Hero {
   headline: string;
+  // A word in the headline rendered in the accent colour.
+  accent: string;
   subhead: string;
   primary: Link;
   secondary: Link;
@@ -80,6 +82,7 @@ export const SITE_DESCRIPTION = SITE.description;
 export const HERO: Hero = {
   headline:
     "I'm Petar. I build Rust infrastructure and the developer tools around it.",
+  accent: "Petar",
   subhead:
     "Founding engineer and tech lead at Nitro Labs, building Termina, a platform for replaying and simulating Solana's history. Before that: Reth execution-client work at Taiko, and smart contracts, SDKs, indexers and frontends across the NEAR ecosystem.",
   primary: { label: "Get in touch", url: "#contact" },

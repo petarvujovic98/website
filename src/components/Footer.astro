@@ -1,5 +1,6 @@
 ---
 import SocialLinks from "./SocialLinks.astro";
+import SectionHeading from "./SectionHeading.astro";
 import { AVAILABILITY, SITE } from "@config";
 
 const year = new Date().getFullYear();
@@ -7,7 +8,7 @@ const year = new Date().getFullYear();
 
 <footer id="contact" class="max-w-screen-lg w-full mx-auto px-4 mt-16">
   <div class="pt-12 pb-10 border-t border-navy">
-    <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+    <SectionHeading>Contact</SectionHeading>
     <p class="max-w-prose mb-6">{AVAILABILITY}</p>
 
     <ul class="flex flex-col gap-2 mb-8">

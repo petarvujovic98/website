@@ -3,12 +3,15 @@ import { HERO, PROJECTS, SITE } from "@config";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Experience from "@components/Experience.astro";
 import Work from "@components/Work.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+
+const [beforeAccent, afterAccent] = HERO.headline.split(HERO.accent);
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
   <section class="flex flex-col gap-6 pt-16 pb-12 max-w-3xl">
     <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-      {HERO.headline}
+      {beforeAccent}<span class="text-magenta">{HERO.accent}</span>{afterAccent}
     </h1>
     <p class="text-lg md:text-xl max-w-prose">{HERO.subhead}</p>
     <div class="flex flex-wrap items-center gap-6">
@@ -23,12 +26,12 @@ import Work from "@components/Work.astro";
   </section>
 
   <section id="experience" class="py-12">
-    <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+    <SectionHeading>Experience</SectionHeading>
     <Experience />
   </section>
 
   <section id="projects" class="py-12">
-    <h2 class="text-2xl font-semibold mb-6">Selected public projects</h2>
+    <SectionHeading>Selected public projects</SectionHeading>
     <div class="flex flex-col">
       {
         PROJECTS.map((project, index) => (
