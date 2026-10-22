@@ -1,0 +1,7 @@
+a {
+  @apply text-sky-800 underline underline-offset-4 decoration-sky-800/40 hover:decoration-sky-800 dark:text-sky-300 dark:decoration-sky-300/40 dark:hover:decoration-sky-300;
+}
+
+a:focus-visible {
+  @apply outline outline-2 outline-offset-4 rounded-sm outline-sky-800 dark:outline-sky-300;
+}
