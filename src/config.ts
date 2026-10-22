@@ -64,7 +64,7 @@ export const SITE: Site = {
     "Petar Vujović, Rust infrastructure engineer. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol: execution clients, indexers and data tooling.",
   ogImageAlt:
     "Petar Vujović: I build Rust infrastructure and the developer tools around it. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol.",
-  jobTitle: "Founding Engineer",
+  jobTitle: "Founding Engineer & Tech Lead",
   employer: "Nitro Labs",
   email: "me@petarvujovic.com",
   telegramHandle: "@petarvujovic",
@@ -81,7 +81,7 @@ export const HERO: Hero = {
   headline:
     "I'm Petar. I build Rust infrastructure and the developer tools around it.",
   subhead:
-    "Founding engineer at Nitro Labs, building Rust infrastructure for the Solana Virtual Machine. Before that: Reth execution-client work at Taiko, and smart contracts, SDKs, indexers and frontends across the NEAR ecosystem.",
+    "Founding engineer and tech lead at Nitro Labs, building Termina, a platform for replaying and simulating Solana's history. Before that: Reth execution-client work at Taiko, and smart contracts, SDKs, indexers and frontends across the NEAR ecosystem.",
   primary: { label: "Get in touch", url: "#contact" },
   secondary: { label: "Experience", url: "#experience" },
 };
@@ -89,16 +89,18 @@ export const HERO: Hero = {
 export const ROLES: Role[] = [
   {
     organisation: "Nitro Labs",
-    title: "Founding Engineer",
+    title: "Founding Engineer & Tech Lead",
     period: "2024 – present",
     summary:
-      "Nitro Labs builds infrastructure for the Solana Virtual Machine. I work across its Rust stack: SVM execution and rollup components, a data-availability layer on Solana with its indexer, and Solana simulation and historical-data tooling for DeFi teams.",
+      "Most Solana DeFi teams test changes in production, because historical chain state is hard to reproduce. At Nitro Labs I lead the engineering of Termina, which replays historical Solana slots so trading desks, market makers and protocol teams can measure a change against real mainnet traffic before shipping it.",
     highlights: [
-      "Core contributor to Data Anchor, open-source Rust crates for storing verifiable data blobs on Solana's ledger.",
-      "Extracted Data Anchor's batch client into Nitro Sender, a reusable crate for landing Solana transactions quickly.",
-      "Zero-knowledge proving work, including SP1 proofs for Data Anchor.",
+      "Replay of historical slots that can pause inside a slot and simulate transactions against that state, with modified balances, parameters or program binaries.",
+      "Rerouting of historical swaps through aggregators, showing which trades a venue would have won and at what price.",
+      "Liquidity-depth and hypothetical-fill datasets for execution-quality analysis, plus a Rust client and CLI for driving it all.",
+      "Earlier at Nitro: core contributor to Data Anchor, open-source Rust crates for verifiable data storage on Solana, and its spin-off transaction sender, Nitro Sender.",
     ],
     links: [
+      { label: "Termina docs", url: "https://docs.termina.technology" },
       { label: "Data Anchor", url: "https://github.com/nitro-svm/data-anchor" },
       {
         label: "Nitro Sender",
