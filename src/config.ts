@@ -62,13 +62,14 @@ export const SITE: Site = {
   title: "Petar Vujović — Rust infrastructure engineer",
   description:
     "Petar Vujović, Rust infrastructure engineer. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol: execution clients, indexers and data tooling.",
-  ogImageAlt: "The Astro logo above the words \u201cBuilt with Astro\u201d",
+  ogImageAlt:
+    "Petar Vujović: I build Rust infrastructure and the developer tools around it. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol.",
   jobTitle: "Founding Engineer",
   employer: "Nitro Labs",
   email: "me@petarvujovic.com",
   telegramHandle: "@petarvujovic",
   telegramUrl: "https://t.me/petarvujovic",
-  bookingUrl: "[BOOKING URL]",
+  bookingUrl: "https://calendar.app.google/9Jj1fTWJrTMLvLF79",
   companyUrl: "https://trius.me",
 };
 
@@ -153,7 +154,7 @@ export const ROLES: Role[] = [
   },
   {
     organisation: "TriUS",
-    title: "Co-founder & CEO",
+    title: "Founder & CEO",
     period: "2020 – present",
     summary:
       "My software company in Montenegro, and still the entity I contract through.",
