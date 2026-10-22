@@ -59,7 +59,7 @@ export const SITE: Site = {
   name: "Petar Vujović",
   title: "Petar Vujović — Rust & data infrastructure consulting",
   description:
-    "Petar Vujović builds Rust infrastructure: execution clients, indexers and data pipelines. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol.",
+    "Petar Vujović builds Rust infrastructure: execution-client work, indexers and data tooling. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol.",
   ogImageAlt: "The Astro logo above the words \u201cBuilt with Astro\u201d",
   jobTitle: "Founding Engineer",
   employer: "Nitro Labs",
@@ -81,9 +81,9 @@ export const HERO: Hero = {
 };
 
 export const HOW_I_WORK: string[] = [
-  "Outside engagements run through TriUS with a small team of senior engineers. I own the architecture, the plan and the review; the team does most of the implementation.",
+  "Outside engagements are contracted through TriUS, with a small team of two or three senior engineers. I own the architecture, the plan and the review rather than most of the coding.",
   "Nothing starts until the scope is written down: what we will build, the assumptions it depends on, and the acceptance criteria that tell us it is done.",
-  "Deliverables are fixed-price, and longer engagements run on a written monthly plan, so at any point you can see exactly what you are paying for and what comes next.",
+  "Deliverables are fixed-price, with a written plan each month covering what is being delivered and what comes next, so the scope stays legible.",
   "We use coding agents for scaffolding, test fixtures and migration work. Correctness and design decisions stay with a senior engineer.",
 ];
 
@@ -98,11 +98,11 @@ export const ROLES: Role[] = [
     title: "Founding Engineer",
     period: "2024 – present",
     summary:
-      "Nitro Labs builds infrastructure for the Solana Virtual Machine. I work across its Rust stack: SVM execution and rollup components, a data-availability layer on Solana with its indexer, and simulation and historical-data tooling used by DeFi teams.",
+      "Nitro Labs builds infrastructure for the Solana Virtual Machine. I work across its Rust stack: SVM execution and rollup components, a data-availability layer on Solana with its indexer, and Solana simulation and historical-data tooling for DeFi teams.",
     highlights: [
       "Core contributor to Data Anchor, open-source Rust crates for storing verifiable data blobs on Solana's ledger.",
       "Extracted Data Anchor's batch client into Nitro Sender, a reusable crate for landing Solana transactions quickly.",
-      "Zero-knowledge proving work for SVM execution.",
+      "Zero-knowledge proving work, including SP1 proofs for Data Anchor.",
     ],
     links: [
       { label: "Data Anchor", url: "https://github.com/nitro-svm/data-anchor" },
@@ -117,7 +117,7 @@ export const ROLES: Role[] = [
     title: "Engineer (contract)",
     period: "2025 – present",
     summary:
-      "Templar is an overcollateralized lending protocol on NEAR. I built its off-chain Rust services and tooling and reviewed changes to the contracts.",
+      "Templar is an overcollateralized lending protocol on NEAR. I built off-chain Rust services and tooling for it and reviewed changes to the contracts.",
     highlights: [
       "Liquidation and yield-accumulation bots that discover deployments and markets from on-chain registries.",
       "The protocol's first fuzz targets, a market configuration CLI, and a nonce fix for high-concurrency transaction submission.",
@@ -135,7 +135,7 @@ export const ROLES: Role[] = [
     summary:
       "Taiko is a based rollup on Ethereum. I worked on its Rust infrastructure, adapting Reth to support Taiko's L2 client and custom rollup block validation.",
     highlights: [
-      "Ran the raiko repository, the layer that puts Taiko's zero-knowledge and TEE provers behind a single API.",
+      "Restructured raiko, Taiko's multi-prover service: split out its core crate and built the versioned API that puts its zero-knowledge and TEE provers behind one interface.",
     ],
     links: [{ label: "raiko", url: "https://github.com/taikoxyz/raiko" }],
   },
@@ -143,7 +143,7 @@ export const ROLES: Role[] = [
     organisation: "NEAR Protocol",
     period: "2022 – 2024",
     summary:
-      "Smart contracts, SDKs, frontends and infrastructure across the NEAR ecosystem, plus a YouTube series documenting how I built NEAR's no-code integrations.",
+      "Smart contracts, SDKs, frontends and infrastructure across the NEAR ecosystem, plus the NEAR integrations for Zapier and Make.com that I built and documented in a YouTube series, a big part of why NEAR hired me.",
     highlights: [
       "Lead developer of NEAR Horizon, built end to end: UI, API, smart contract, indexer, analytics and CRM sync.",
       "Contributed to near-sdk-js: a refactor adding generics, BigInt and Date serialization, middleware, and build and CLI tooling.",
@@ -165,8 +165,8 @@ export const ROLES: Role[] = [
     summary:
       "My software company in Montenegro, and still the entity I contract through.",
     highlights: [
-      "Main developer of RenyaHome, an e-commerce platform: Next.js storefront, Directus admin, Postgres with change-data-capture sync to Algolia, and AWS serverless infrastructure.",
-      "Built a live-streaming and video-on-demand setup.",
+      "Lead developer of RenyaHome, an e-commerce platform built with one other engineer: Next.js storefront, Directus admin, Postgres, Algolia search, and AWS infrastructure.",
+      "Co-built a live-streaming and video-on-demand setup for an event (2020).",
     ],
     links: [{ label: "trius.me", url: "https://trius.me" }],
   },
@@ -205,7 +205,7 @@ export const PROJECTS: Project[] = [
     description: "A Rust CLI that formats SQL queries, published on crates.io.",
     image: {
       src: sqlifyScreenshot,
-      alt: "Terminal showing sqlify reformatting a one-line SQL query",
+      alt: "Terminal showing sqlify reformatting a long SQL query into indented clauses",
     },
     url: "https://crates.io/crates/sqlify",
     github: "https://github.com/petarvujovic98/sqlify",
@@ -224,7 +224,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Make.com (Integromat) – NEAR integration",
     description:
-      "Lets Make.com scenarios interact with NEAR like any other integration. Also documented as a YouTube series.",
+      "A NEAR app for Integromat (now Make.com), built in 2022. The repo holds the write-up; the build is documented as a YouTube series.",
     image: {
       src: integromatScreenshot,
       alt: "Integromat and NEAR logos, title card for day 2 of the video series",
