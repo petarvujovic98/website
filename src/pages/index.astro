@@ -1,5 +1,5 @@
 ---
-import { HERO, HOW_I_WORK, PROJECTS, PUBLIC_WORK, SITE } from "@config";
+import { HERO, PROJECTS, SITE } from "@config";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Experience from "@components/Experience.astro";
 import Work from "@components/Work.astro";
@@ -25,27 +25,6 @@ import Work from "@components/Work.astro";
   <section id="experience" class="py-12">
     <h2 class="text-2xl font-semibold mb-6">Experience</h2>
     <Experience />
-  </section>
-
-  <section id="how-i-work" class="py-12">
-    <h2 class="text-2xl font-semibold mb-6">How I work</h2>
-    <div class="flex flex-col gap-4 max-w-prose">
-      {HOW_I_WORK.map((paragraph) => <p>{paragraph}</p>)}
-    </div>
-    {
-      PUBLIC_WORK.length > 0 && (
-        <div class="mt-6 max-w-prose">
-          Public work:
-          <ul class="inline-flex flex-wrap gap-x-4 ml-2">
-            {PUBLIC_WORK.map(({ label, url }) => (
-              <li>
-                <a href={url}>{label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
   </section>
 
   <section id="projects" class="py-12">

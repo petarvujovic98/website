@@ -57,13 +57,13 @@ export interface Social {
 
 export const SITE: Site = {
   name: "Petar Vujović",
-  title: "Petar Vujović — Rust & data infrastructure consulting",
+  title: "Petar Vujović — Rust infrastructure engineer",
   description:
-    "Petar Vujović builds Rust infrastructure: execution-client work, indexers and data tooling. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol.",
+    "Petar Vujović, Rust infrastructure engineer. Founding engineer at Nitro Labs, previously Taiko and NEAR Protocol: execution clients, indexers and data tooling.",
   ogImageAlt: "The Astro logo above the words \u201cBuilt with Astro\u201d",
   jobTitle: "Founding Engineer",
   employer: "Nitro Labs",
-  email: "[CONTACT EMAIL]",
+  email: "me@petarvujovic.com",
   bookingUrl: "[BOOKING URL]",
   companyUrl: "https://trius.me",
 };
@@ -76,21 +76,9 @@ export const HERO: Hero = {
   headline: "[HERO HEADLINE — pending choice]",
   subhead:
     "Founding engineer at Nitro Labs, building Rust infrastructure for the Solana Virtual Machine. Before that: Reth execution-client work at Taiko, and smart contracts, SDKs, indexers and frontends across the NEAR ecosystem.",
-  primary: { label: "Book an intro call", url: SITE.bookingUrl },
-  secondary: { label: "How I work", url: "#how-i-work" },
+  primary: { label: "Get in touch", url: "#contact" },
+  secondary: { label: "Experience", url: "#experience" },
 };
-
-export const HOW_I_WORK: string[] = [
-  "Outside engagements are contracted through TriUS, with a small team of two or three senior engineers. I own the architecture, the plan and the review rather than most of the coding.",
-  "Nothing starts until the scope is written down: what we will build, the assumptions it depends on, and the acceptance criteria that tell us it is done.",
-  "Deliverables are fixed-price, with a written plan each month covering what is being delivered and what comes next, so the scope stays legible.",
-  "We use coding agents for scaffolding, test fixtures and migration work. Correctness and design decisions stay with a senior engineer.",
-];
-
-export const PUBLIC_WORK: Link[] = [
-  { label: "Data Anchor", url: "https://github.com/nitro-svm/data-anchor" },
-  { label: "sqlify", url: "https://github.com/petarvujovic98/sqlify" },
-];
 
 export const ROLES: Role[] = [
   {
@@ -235,7 +223,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export const AVAILABILITY =
-  "Available for a small number of outside engagements in EVM/L2 infrastructure, data pipelines, and engineering audits. I don't take on work that overlaps my employer's products.";
+  "Email is the best way to reach me. For project work, my company TriUS takes on a small number of engagements.";
 
 export const SOCIALS: Social[] = [
   { name: "GitHub", url: "https://github.com/petarvujovic98" },
