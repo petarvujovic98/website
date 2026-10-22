@@ -1,22 +1,40 @@
 ---
-import ShowToy from "./ShowToy.svelte";
 import { Image } from "astro:assets";
 import headshot from "../assets/headshot.jpg";
+import { SITE } from "@config";
+
+const NAV = [
+  { label: "Experience", url: "#experience" },
+  { label: "How I work", url: "#how-i-work" },
+  { label: "Projects", url: "#projects" },
+  { label: "Contact", url: "#contact" },
+];
 ---
 
 <header
-  class="my-8 col-span-12 flex justify-between font-semibold max-w-screen-2xl w-full mx-auto px-4"
+  class="max-w-screen-lg w-full mx-auto px-4 pt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
 >
-  <h2 class="my-2 mx-0 w-1/4 text-center">
-    <!-- <a href="/"> -->
-    <ShowToy client:visible />
-    <!-- </a> -->
-  </h2>
-  <div class="w-28 h-28 overflow-hidden rounded-full mt-4">
-    <Image
-      src={headshot}
-      alt="Petar Vujovic"
-      class="w-full object-cover object-top -translate-y-6"
-    />
-  </div>
+  <a href="/" class="flex items-center gap-4 font-semibold no-underline">
+    <span class="block w-14 h-14 overflow-hidden rounded-full">
+      <Image
+        src={headshot}
+        alt=""
+        width={112}
+        class="w-full h-full object-cover object-top"
+      />
+    </span>
+    {SITE.name}
+  </a>
+
+  <nav aria-label="Sections">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+      {
+        NAV.map(({ label, url }) => (
+          <li>
+            <a href={url}>{label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
