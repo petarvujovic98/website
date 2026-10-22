@@ -5,10 +5,8 @@ import { ROLES } from "@config";
 <ol class="flex flex-col">
   {
     ROLES.map(({ organisation, title, period, summary, highlights, links }) => (
-      <li class="grid grid-cols-1 md:grid-cols-[10rem_1fr] gap-x-8 gap-y-2 py-6 border-t border-sky-300 dark:border-sky-800">
-        <p class="text-sm tabular-nums text-sky-800 dark:text-sky-300 md:pt-1">
-          {period}
-        </p>
+      <li class="grid grid-cols-1 md:grid-cols-[10rem_1fr] gap-x-8 gap-y-2 py-6 border-t border-navy">
+        <p class="text-sm tabular-nums text-silver md:pt-1">{period}</p>
         <div class="flex flex-col gap-3">
           <h3 class="text-xl font-semibold">
             {organisation}

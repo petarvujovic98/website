@@ -12,14 +12,12 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-sky-50 dark:bg-sky-950">
+<html lang="en" class="bg-night [color-scheme:dark]">
   <head>
     <BaseHead title={title} description={description} />
   </head>
 
-  <body
-    class="min-h-screen bg-sky-50 text-sky-950 dark:bg-sky-950 dark:text-sky-50 antialiased"
-  >
+  <body class="min-h-screen bg-night text-moonlight antialiased">
     <Header />
 
     <main class="max-w-screen-lg mx-auto px-4">
