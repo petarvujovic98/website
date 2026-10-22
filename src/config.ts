@@ -20,6 +20,8 @@ export interface Site {
   jobTitle: string;
   employer: string;
   email: string;
+  telegramHandle: string;
+  telegramUrl: string;
   bookingUrl: string;
   companyUrl: string;
 }
@@ -48,7 +50,7 @@ export interface Project {
   github?: string;
 }
 
-export type SocialName = "GitHub" | "LinkedIn" | "X" | "YouTube";
+export type SocialName = "GitHub" | "LinkedIn" | "X" | "Telegram" | "YouTube";
 
 export interface Social {
   name: SocialName;
@@ -64,6 +66,8 @@ export const SITE: Site = {
   jobTitle: "Founding Engineer",
   employer: "Nitro Labs",
   email: "me@petarvujovic.com",
+  telegramHandle: "@petarvujovic",
+  telegramUrl: "https://t.me/petarvujovic",
   bookingUrl: "[BOOKING URL]",
   companyUrl: "https://trius.me",
 };
@@ -73,7 +77,8 @@ export const SITE_TITLE = SITE.title;
 export const SITE_DESCRIPTION = SITE.description;
 
 export const HERO: Hero = {
-  headline: "[HERO HEADLINE — pending choice]",
+  headline:
+    "I'm Petar. I build Rust infrastructure and the developer tools around it.",
   subhead:
     "Founding engineer at Nitro Labs, building Rust infrastructure for the Solana Virtual Machine. Before that: Reth execution-client work at Taiko, and smart contracts, SDKs, indexers and frontends across the NEAR ecosystem.",
   primary: { label: "Get in touch", url: "#contact" },
@@ -223,11 +228,12 @@ export const PROJECTS: Project[] = [
 ];
 
 export const AVAILABILITY =
-  "Email is the best way to reach me. For project work, my company TriUS takes on a small number of engagements.";
+  "Email or Telegram is the best way to reach me. For project work, my company TriUS takes on a small number of engagements.";
 
 export const SOCIALS: Social[] = [
   { name: "GitHub", url: "https://github.com/petarvujovic98" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/petarvujović" },
   { name: "X", url: "https://x.com/petarvujovic98" },
+  { name: "Telegram", url: SITE.telegramUrl },
   { name: "YouTube", url: "https://youtube.com/@petarvujovic" },
 ];

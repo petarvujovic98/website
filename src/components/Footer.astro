@@ -5,20 +5,22 @@ import { AVAILABILITY, SITE } from "@config";
 const year = new Date().getFullYear();
 ---
 
-<footer
-  id="contact"
-  class="max-w-screen-lg w-full mx-auto px-4 pt-12 pb-10 mt-16 border-t border-sky-300 dark:border-sky-800"
->
-  <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-  <p class="max-w-prose mb-6">{AVAILABILITY}</p>
+<footer id="contact" class="max-w-screen-lg w-full mx-auto px-4 mt-16">
+  <div class="pt-12 pb-10 border-t border-sky-300 dark:border-sky-800">
+    <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+    <p class="max-w-prose mb-6">{AVAILABILITY}</p>
 
-  <ul class="flex flex-col gap-2 mb-8">
-    <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-    <li><a href={SITE.bookingUrl}>Book a call</a></li>
-    <li><a href={SITE.companyUrl}>TriUS</a></li>
-  </ul>
+    <ul class="flex flex-col gap-2 mb-8">
+      <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+      <li>
+        <a href={SITE.telegramUrl}>Telegram: {SITE.telegramHandle}</a>
+      </li>
+      <li><a href={SITE.bookingUrl}>Book a call</a></li>
+      <li><a href={SITE.companyUrl}>TriUS</a></li>
+    </ul>
 
-  <SocialLinks />
+    <SocialLinks />
 
-  <p class="mt-8 text-sm">&copy; {year} {SITE.name}</p>
+    <p class="mt-8 text-sm">&copy; {year} {SITE.name}</p>
+  </div>
 </footer>
