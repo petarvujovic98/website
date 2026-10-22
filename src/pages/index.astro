@@ -1,226 +1,61 @@
 ---
-import hznScreenshot from "@assets/hzn-screenshot.png";
-import taikoScreenshot from "@assets/taiko.png";
-import sqlifyScreenshot from "@assets/sqlify-screenshot.png";
-import nearScreenshot from "@assets/near-sdk-js.png";
-import zapierScreenshot from "@assets/zapier.webp";
-import integromatScreenshot from "@assets/integromat.webp";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@config";
+import { HERO, HOW_I_WORK, PROJECTS, PUBLIC_WORK, SITE } from "@config";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Experience from "@components/Experience.astro";
 import Work from "@components/Work.astro";
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div class="flex flex-col gap-4">
-    <h1 class="text-5xl font-bold">
-      I'm a software engineer who's building your next
-      <span class="group cursor-pointer">
-        <span class="inline-block relative">
-          unicorn
-          <i
-            class="block w-[7ch] h-1 bg-red-500 absolute top-1/2 left-0 scale-x-0 group-hover:scale-x-100 transition-all duration-300 origin-left"
-          ></i>
-        </span>
-        <span
-          class="scale-x-0 inline-block group-hover:scale-x-100 transition-all duration-300 origin-left text-sky-200 dark:text-sky-500"
-        >
-          unvalidated idea
-        </span>
-      </span>
+<BaseLayout title={SITE.title} description={SITE.description}>
+  <section class="flex flex-col gap-6 pt-16 pb-12 max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+      {HERO.headline}
     </h1>
-
-    <h2 class="text-3xl font-semibold">
-      I build infrastructure, consumer apps and developer tools.
-    </h2>
-
-    <h3 class="text-2xl font-semibold">
-      I like learning about pretty much everything (sometimes I wonder when my
-      brain will need to defragment).
-    </h3>
-
-    <section class="flex flex-col gap-8 mt-8 justify-center items-center">
-      <h3 class="text-2xl font-semibold w-full">What I'm doing now</h3>
-
-      <Work
-        image={taikoScreenshot}
-        title="taiko"
-        url="https://taiko.xyz"
-        github="https://github.com/taikoxyz"
+    <p class="text-lg md:text-xl max-w-prose">{HERO.subhead}</p>
+    <div class="flex flex-wrap items-center gap-6">
+      <a
+        href={HERO.primary.url}
+        class="no-underline px-5 py-3 rounded-md font-semibold bg-sky-800 text-sky-50 hover:bg-sky-900 dark:bg-sky-300 dark:text-sky-950 dark:hover:bg-sky-200"
       >
-        <div slot="description">
-          <p>
-            Taiko is a
-            <a
-              href="https://docs.taiko.xyz/core-concepts/based-sequencing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              based rollup
-            </a>
-            which makes Ethereum cheaper while maintaining its properties:
-          </p>
-          <br />
-          <ul class="flex flex-col list-disc list-inside">
-            <li>
-              <a
-                href="https://docs.taiko.xyz/core-concepts/contestable-rollups"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-semibold"
-              >
-                Based contestable rollup:
-              </a> A configurable rollup to reduce transaction fees on Ethereum.
-            </li>
-            <li>
-              <a
-                href="https://docs.taiko.xyz/core-concepts/booster-rollups"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-semibold"
-              >
-                Based booster rollup:
-              </a> An innovative approach to <strong>native L1 scaling</strong>.
-            </li>
+        {HERO.primary.label}
+      </a>
+      <a href={HERO.secondary.url}>{HERO.secondary.label}</a>
+    </div>
+  </section>
+
+  <section id="experience" class="py-12">
+    <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+    <Experience />
+  </section>
+
+  <section id="how-i-work" class="py-12">
+    <h2 class="text-2xl font-semibold mb-6">How I work</h2>
+    <div class="flex flex-col gap-4 max-w-prose">
+      {HOW_I_WORK.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    {
+      PUBLIC_WORK.length > 0 && (
+        <div class="mt-6 max-w-prose">
+          Public work:
+          <ul class="inline-flex flex-wrap gap-x-4 ml-2">
+            {PUBLIC_WORK.map(({ label, url }) => (
+              <li>
+                <a href={url}>{label}</a>
+              </li>
+            ))}
           </ul>
-          <br />
-          <p>
-            I am working on
-            <a
-              href="https://github.com/taikoxyz/raiko"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-semibold underline"
-            >
-              raiko
-            </a>
-            which is taiko's multi-prover for Taiko and Ethereum blocks. I'm in charge
-            of the repository and implementing the connective tissue between the
-            different provers (currently Risc0, SP1 and SGX) in order to provide
-            the optimal API for the network. I am also responsible for maintaining
-            high standards for best Rust practices and future extensibility.
-            <br />
-            I am also responsible for adapting
-            <a
-              href="https://github.com/taikoxyz/taiko-reth"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-semibold underline"
-            >
-              reth
-            </a>
-            to support our L2 client and custom rollup block validation for taiko.
-          </p>
         </div>
-      </Work>
+      )
+    }
+  </section>
 
-      <Work
-        image={hznScreenshot}
-        title="NEAR Horizon"
-        url="https://hzn.xyz"
-        github="https://github.com/near-horizon/horizon"
-        reverse
-      >
-        <p slot="description">
-          NEAR Horizon connects people building on NEAR. It's a dApp built on
-          the
-          <a
-            href="https://docs.near.org/bos"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            BOS
-          </a>
-          platform on top of the
-          <a href="https://near.org" target="_blank" rel="noopener noreferrer">
-            NEAR Protocol
-          </a>.
-          <br />
-          <br />
-          I was the lead developer building all the parts of the project. From the
-          UI, API, smart contract and indexer to the analytics, syncing with CRMs
-          and fixing bugs.
-        </p>
-      </Work>
-
-      <Work
-        image={sqlifyScreenshot}
-        title="sqlify"
-        url="https://crates.io/crates/sqlify"
-        github="https://github.com/petarvujovic98/sqlify"
-      >
-        <p slot="description">
-          sqlify is a CLI tool for formatting your SQL queries. It's built in
-          <a
-            href="https://rust-lang.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rust
-          </a>
-          and uses the
-          <a
-            href="https://github.com/shssoichiro/sqlformat-rs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            sqlformat
-          </a> crate for the actual formatting.
-          <br />
-          <br />
-          Something I built as a utility to help me organize my SQL queries in the
-          projects I work on.
-        </p>
-      </Work>
-
-      <Work
-        image={nearScreenshot}
-        title="near-sdk-js"
-        url="https://docs.near.org/sdk/js/introduction"
-        github="https://github.com/near/near-sdk-js"
-        reverse
-      >
-        <p slot="description">
-          Tools for building NEAR smart contracts in JavaScript.
-          <br />
-          <br />
-          Allows developers to use JavaScript/TypeScript to build smart contracts
-          for the NEAR Protocol and compile the using the included CLI tool to WASM
-          to be deployed to the chain.
-        </p>
-      </Work>
-
-      <Work
-        image={zapierScreenshot}
-        title="Zapier - NEAR integration"
-        url="https://www.youtube.com/playlist?list=PL3ZFE2cBGD2MylJ-87DQPQJUjRSNiud5r"
-        github="https://github.com/petarvujovic98/near-zapier"
-      >
-        <p slot="description">
-          Zapier platform integration for NEAR Protocol.
-          <br />
-          <br />
-          Allows anyone to connect their NEAR account to Zapier and interact with
-          the chain. I document the whole process of building an integration and
-          write a blog post about it.
-        </p>
-      </Work>
-
-      <Work
-        image={integromatScreenshot}
-        title="Integromat (Make.com) - NEAR integration"
-        url="https://www.youtube.com/playlist?list=PL3ZFE2cBGD2MqnYWHC506HwoG3rdrTgoR"
-        github="https://github.com/petarvujovic98/near-integromat"
-        reverse
-      >
-        <p slot="description">
-          Integromat (now Make.com) platform integration for NEAR Protocol.
-          <br />
-          <br />
-          Allows anyone to interact with the NEAR Protocol using Make.com scenarios
-          like it was any other integration/plugin. I document the whole process
-          of building an integration and write a blog post about it.
-        </p>
-      </Work>
-    </section>
-  </div>
+  <section id="projects" class="py-12">
+    <h2 class="text-2xl font-semibold mb-6">Selected public projects</h2>
+    <div class="flex flex-col">
+      {
+        PROJECTS.map((project, index) => (
+          <Work project={project} reverse={index % 2 === 1} />
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
